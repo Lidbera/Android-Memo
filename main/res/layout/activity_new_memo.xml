@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="activity"
+            type="com.lectinua.memo.activity.NewMemoActivity" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSub"
+        tools:context=".WriteDiaryActivity">
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:background="@drawable/box_round_2"
+            android:elevation="20dp"
+            android:id="@+id/window_sureExit"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="50dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp"
+                android:text="@string/sure_exit"/>
+            
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/btn_yes"
+                android:onClick="@{activity::yes}"
+                android:text="@string/yes"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/btn_no"
+                android:onClick="@{activity::no}"
+                android:text="@string/no"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="3dp"
+            android:background="@color/colorPrimary"
+            android:id="@+id/relStatusBar">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/new_memo"/>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="12dp"
+                android:src="@drawable/icon_back"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:background="#00000000"
+                android:onClick="@{activity::back}"
+                android:id="@+id/btn_back"/>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="12dp"
+                android:src="@drawable/icon_check"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:background="#00000000"
+                android:onClick="@{activity::saveMemo}"
+                android:id="@+id/btn_check"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relStatusBar"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:paddingBottom="10dp"
+                android:onClick="@{activity::setDateDialog}"
+                android:id="@+id/tv_date"
+                android:textAlignment="textEnd"
+                android:text="temp date text"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/tv_time"
+                android:textAlignment="textEnd"
+                android:text="temp time text"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:hint="@string/input_title"
+                android:id="@+id/edit_title"
+                android:background="#00000000"
+                android:layout_below="@id/tv_date"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:gravity="top"
+                android:id="@+id/edit_content"
+                android:hint="@string/input_content"
+                android:textSize="20dp"
+                android:layout_below="@id/edit_title"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>

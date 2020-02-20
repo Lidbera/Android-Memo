@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="activity"
+            type="com.lectinua.memo.activity.MainActivity" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSub"
+        tools:context=".CheckPermissionActivity">
+
+        <!--toolBar-->
+        <RelativeLayout
+            android:translationZ="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="3dp"
+            android:background="@color/colorPrimary"
+            android:elevation="50dp">
+
+            <!--searchInputView-->
+            <RelativeLayout
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/btn_more"
+                android:id="@+id/view_search" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="50dp"
+                    android:src="@drawable/box_round" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="110dp"
+                    android:hint="@string/input_text"
+                    android:layout_centerVertical="true"
+                    android:layout_height="50dp"
+                    android:background="#00000000"
+                    android:id="@+id/edit_inputSearch" />
+
+            </RelativeLayout>
+
+            <!--moreButton-->
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/icon_more"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:id="@+id/btn_more"
+                android:onClick="@{activity::btn_more}"
+                android:padding="12dp"/>
+
+            <!--search, closeButton-->
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/icon_search"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:id="@+id/btn_search"
+                android:onClick="@{activity::btn_search}"
+                android:padding="12dp"/>
+            <ImageButton
+                android:visibility="gone"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/icon_close"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:id="@+id/btn_searchClose"
+                android:onClick="@{activity::btn_searchClose}"
+                android:padding="12dp"/>
+
+            <!--mainView-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/view_main">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:onClick="@{activity::home}"
+                    android:id="@+id/tv_home"
+                    android:text="@string/title"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorWhite"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!--memoListView-->
+        <LinearLayout
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/colorSub"
+            android:id="@+id/view_memoList"/>
+
+        <!--moreView-->
+        <FrameLayout
+            android:translationZ="100dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/view_more_back"
+                android:alpha="0.5"
+                android:background="@color/colorBlack"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!--moreViewExtended-->
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/view_more"
+                    android:orientation="vertical"
+                    android:background="@color/colorSub">
+
+                    <Button
+                        android:visibility="gone"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/colorPrimary"
+                        android:elevation="15dp"
+                        android:id="@+id/btn_newMemo"
+                        android:onClick="@{activity::btn_newMemo}"
+                        android:text="@string/new_memo"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="30sp"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0"
+                    android:id="@+id/view_more_close"
+                    android:onClick="@{activity::btn_closeMore}"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+</layout>
